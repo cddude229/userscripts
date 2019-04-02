@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         GitHub -> OmniFocus - PR Quick Add Link
-// @version      1.0.0
+// @version      1.0.1
 // @description  Adds a shortcut to pull requests on GitHub so that you can quickly send them to OmniFocus.
 // @namespace    https://github.com/cddude229/userscripts
 // @supportURL   https://github.com/cddude229/userscripts/issues
@@ -17,6 +17,8 @@ var targetTags = ""; // Comma-separated list of tags
 
 /*
   CHANGE LOG:
+  1.0.1
+  - Fixed accidental double white space
   1.0.0
   - Initial release of script
 */
@@ -49,7 +51,7 @@ var targetTags = ""; // Comma-separated list of tags
                     var fullName = result["name"] || username; // Fallback to username if name isn't set
                     var prId = location.href.match(/pull\/(\d+)/) ? RegExp.$1 : -1;
 
-                    var omniName = "PR " + prId + "  - Review for " + fullName;
+                    var omniName = "PR " + prId + " - Review for " + fullName;
                     var omniNote = location.href;
 
                     var addArgIfDefined = function(argName, value) {
